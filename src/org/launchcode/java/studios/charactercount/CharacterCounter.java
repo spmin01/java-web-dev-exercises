@@ -10,7 +10,7 @@ public class CharacterCounter {
         Scanner input = new Scanner(System.in);
         System.out.println("Enter a string: ");
         String inputString = input.nextLine();
-        char[] charactersInString = inputString.toCharArray();
+        char[] charactersInString = inputString.toLowerCase().toCharArray();
         input.close();
 
         HashMap<Character, Integer> charCount = countCharacters(charactersInString);
@@ -21,16 +21,24 @@ public class CharacterCounter {
 
     }
 
+    //
+    // Takes an array of characters, returns a HashMap of the total counts of those characters
+    // in format "char": count
+    //
     private static HashMap<Character, Integer> countCharacters(char[] inputStr) {
         HashMap<Character, Integer> count = new HashMap<>();
 
         for (Character c : inputStr) {
-            if (!count.containsKey(c)) {
-                count.put(c, 1);
-            } else {
-                Integer currentCount = count.get(c);
-                currentCount++;
-                count.put(c, currentCount);
+            // check if character is a letter
+            if(Character.isLetter(c)) {
+                // add new key at count 1 if character is not already in map
+                if (!count.containsKey(c)) {
+                    count.put(c, 1);
+                } else {
+                    Integer currentCount = count.get(c);
+                    currentCount++;
+                    count.put(c, currentCount);
+                }
             }
         }
 
