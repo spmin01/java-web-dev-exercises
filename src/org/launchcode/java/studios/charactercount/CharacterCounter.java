@@ -1,25 +1,23 @@
 package org.launchcode.java.studios.charactercount;
 
-import java.util.Arrays;
 import java.util.HashMap;
-import java.util.Set;
+import java.util.Scanner;
 
 public class CharacterCounter {
 
     public static void main(String[] args) {
-        String sentence = "If the product of two terms is zero then common sense says at least one of the two terms has to be zero to start with." +
-                " So if you move all the terms over to one side, you can put the quadratics into a form that can be factored allowing that side of " +
-                "the equation to equal zero. Once you’ve done that, it’s pretty straightforward from there.";
 
-        char[] charactersInString = sentence.toCharArray();
+        Scanner input = new Scanner(System.in);
+        System.out.println("Enter a string: ");
+        String inputString = input.nextLine();
+        char[] charactersInString = inputString.toCharArray();
+        input.close();
 
         HashMap<Character, Integer> charCount = countCharacters(charactersInString);
 
-
-        for(Character c : charCount.keySet()) {
+        for (Character c : charCount.keySet()) {
             System.out.println(c + ": " + charCount.get(c));
         }
-
 
     }
 
