@@ -1,4 +1,4 @@
-package org.launchcode.java.demos.lsn3classes1;
+package org.launchcode.java.exercises.school;
 
 public class SchoolPractice {
     public static void main(String[] args) {
